@@ -14,7 +14,7 @@ import base64
 from ..bert_part.inference.inference import Inference
 app = FastAPI()
 
-model_checkpoint = os.path.join(current_dir, "Emotion_Draw/bert_part/models_trained/multiclass_experiment1_albert-base-v2_best_checkpoint.pth")
+model_checkpoint = os.path.join(current_dir, "Emotion_Draw/bert_part/models_trained/multiclass_experiment3_albert-base-v2_best_checkpoint.pth")
 
 app.add_middleware(
     CORSMiddleware, 
