@@ -9,6 +9,7 @@ __pycache__/
 # Token and models
 auth_token.*
 *.pth
+.DSstore
 
 # Distribution / packaging
 .Python
