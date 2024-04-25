@@ -10,6 +10,7 @@ __pycache__/
 auth_token.*
 *.pth
 *.DSstore
+options.txt
 
 #Images
 image1.png
