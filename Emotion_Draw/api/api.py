@@ -1,9 +1,9 @@
 import os
 current_dir = os.getcwd()
-# auth_token_dir = os.path.join(current_dir, "Emotion_Draw/api/auth_token.txt")
+auth_token_dir = os.path.join(current_dir, "Emotion_Draw/api/auth_token.txt")
 
-# with open(auth_token_dir,'r') as f:
-#   auth_token = f.read()
+with open(auth_token_dir,'r') as f:
+  auth_token = f.read()
 from fastapi import FastAPI, Response
 from fastapi.middleware.cors import CORSMiddleware
 import torch
@@ -25,8 +25,8 @@ app.add_middleware(
 )
 
 device = 'cuda'
-model_id = "stabilityai/stable-diffusion-2"
-pipe = StableDiffusionPipeline.from_pretrained(model_id, revision="fp16", torch_dtype=torch.float16, use_auth_token="YOUR TOKEN HERE")
+model_id = "stabilityai/stable-diffusion-2-1"
+pipe = StableDiffusionPipeline.from_pretrained(model_id, revision="fp16", torch_dtype=torch.float16, use_auth_token= auth_token)
 pipe.to(device)
 
 @app.get("/")
