@@ -1,2 +1,2 @@
-from . import Multiclass_BERT_RoBERTa
-from .Multiclass_BERT_RoBERTa import MulticlassClassificationTrainer
+from . import Multiclass_BERT
+from .Multiclass_BERT import MulticlassClassificationTrainer

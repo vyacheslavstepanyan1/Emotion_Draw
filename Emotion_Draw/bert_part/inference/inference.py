@@ -19,7 +19,7 @@ Usage:
 import torch
 import pandas as pd
 import os
-from ..model.Multiclass_BERT_RoBERTa import MulticlassClassificationTrainer
+from ..model.Multiclass_BERT import MulticlassClassificationTrainer
 
 # Define model parameters
 model_names = ['bert-base-uncased', 'roberta-base', 'albert-base-v2']
