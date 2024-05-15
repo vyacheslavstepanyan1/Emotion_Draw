@@ -60,6 +60,9 @@ For further assistance or inquiries, contact our team at
 
 ## **The Project Structure**
 
+<details>
+  <summary>Click to Expand the Structure.</summary>
+
 ```
 
 ├── Emotion_Draw                 # Root directory of the project
@@ -136,3 +139,5 @@ For further assistance or inquiries, contact our team at
 └── setup.py                     # Setup script for packaging the project
 
 ```
+
+</details>
