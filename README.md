@@ -7,6 +7,9 @@
 
 ## **Table of Contents 🤓**
 
+<details>
+  <summary>Click to Expand the Table of Contents.</summary>
+
 - [**Dataset**](https://vyacheslavstepanyan1.github.io/Emotion_Draw/data/)
     - [Emotions Dataset for NLP](https://vyacheslavstepanyan1.github.io/Emotion_Draw/data/#emotions-dataset-for-nlp)
     - [Preprocessing](https://vyacheslavstepanyan1.github.io/Emotion_Draw/data/#preprocessing)
@@ -40,6 +43,8 @@
 - [**Integrating JavaScript and React for the Frontend of Emotion Draw**](https://vyacheslavstepanyan1.github.io/Emotion_Draw/js/)
     - [Key Features Implemented](https://vyacheslavstepanyan1.github.io/Emotion_Draw/js/#key-features-implemented)
     - [Run the JS React Application](https://vyacheslavstepanyan1.github.io/Emotion_Draw/js/#run-the-js-react-application)
+ 
+</details>
 
 
 ## **Troubleshooting 🎯**
@@ -61,7 +66,7 @@ For further assistance or inquiries, contact our team at
 ## **The Project Structure**
 
 <details>
-  <summary>Click to Expand the Structure.</summary>
+  <summary>Click to Expand the Project Structure.</summary>
 
 ```
 
