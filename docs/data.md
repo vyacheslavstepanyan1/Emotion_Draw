@@ -22,7 +22,7 @@ An example entry from the dataset follows the format:
 
 ### **Acknowledgements**
 
-This dataset is made available thanks to [Elvis](https://lnkd.in/eXJ8QVB) and the Hugging Face team. The methodology used to prepare the dataset is detailed in the following publication: [Learning to Feel: Training the Emotion Classifier from Dialogue](https://www.aclweb.org/anthology/D18-1404/).
+This dataset is made available thanks to [Elvis](https://lnkd.in/eXJ8QVB) and the Hugging Face team. The methodology used to prepare the dataset is detailed in the following publication: [CARER: Contextualized Affect Representations for Emotion Recognition](https://www.aclweb.org/anthology/D18-1404/).
 
 ### **Inspiration**
 
