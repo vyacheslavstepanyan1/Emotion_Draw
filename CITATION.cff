@@ -1,0 +1,10 @@
+cff-version: 0.0.1
+message: "If you use this project, please cite it as below."
+authors:
+  - family-names: Stepanyan
+    given-names: Vyachslav
+  - family-names: Baghdasaryan
+  given-names: Anahit
+title: "Emotion Draw"
+version: 0.0.1
+date-released: 2024-05-16
