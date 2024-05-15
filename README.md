@@ -42,10 +42,6 @@
     - [Run the JS React Application](https://vyacheslavstepanyan1.github.io/Emotion_Draw/js/#run-the-js-react-application)
 
 
-## **Testing the Emotion Draw Step-by-Step 👣**
-
-To be updated!
-
 ## **Troubleshooting 🎯**
 
 If you encounter any issues, reach out to our team.
