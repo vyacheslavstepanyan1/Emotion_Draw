@@ -61,3 +61,82 @@ For further assistance or inquiries, contact our team at
 * [anahit_baghdasaryan2@edu.aua.am](mailto:anahit_baghdasaryan3@edu.aua.am)
 
 * [vyacheslav_stepanyan@edu.aua.am](mailto:vyacheslav_stepanyan@edu.aua.am)
+
+## **The Project Structure**
+
+```
+
+├── Emotion_Draw                 # Root directory of the project
+│   ├── __init__.py              # Initialization file 
+│   ├── api                      # Directory for the API-related code
+│   │   ├── __init__.py          # Initialization file 
+│   │   └── api.py               # Main API implementation file
+│   ├── bert_part                # Directory for BERT-related components
+│   │   ├── __init__.py          # Initialization file 
+│   │   ├── data                 # Directory for data storage and management
+│   │   │   ├── processed        # Processed data files
+│   │   │   │   ├── test_data.csv    # Processed test data in CSV format
+│   │   │   │   ├── train_data.csv   # Processed training data in CSV format
+│   │   │   │   └── val_data.csv     # Processed validation data in CSV format
+│   │   │   └── raw              # Raw data files
+│   │   │       ├── test.txt     # Raw test data
+│   │   │       ├── train.txt    # Raw training data
+│   │   │       └── val.txt      # Raw validation data
+│   │   ├── inference            # Directory for inference-related code
+│   │   │   ├── __init__.py      # Initialization file 
+│   │   │   └── inference.py     # Main inference implementation file
+│   │   ├── model                # Directory for model-related code
+│   │   │   ├── Multiclass_BERT.py   # BERT model fine-tuning implementation for multiclass classification task
+│   │   │   └── __init__.py      # Initialization file 
+│   │   ├── models_trained       # Directory for storing trained models' checkpoints
+│   │   │   └── info.txt         # Information about the directory
+│   │   ├── notebooks            # Jupyter notebooks for experiments and analysis
+│   │   │   ├── BERT-based_Sequence_Classification.ipynb   # Notebook for BERT-based sequence classification 
+│   │   │   └── data_creation.ipynb                        # Notebook for data creation and preprocessing
+│   │   ├── reports              # Directory for reports
+│   │   │   └── figures          # Figures and visualizations for reports
+│   │   │       └── info.txt     # Information about the directory
+│   │   └── runs                 # Directory for storing run information and logs
+│   │       └── info.txt         # Information about the directory
+│   └── client                   # Directory for the client-side application
+│       ├── README.md            # Readme file for the client application
+│       ├── package-lock.json    # Dependency lock file for npm
+│       ├── package.json         # Dependency configuration file for npm
+│       ├── public               # Public assets for the client application
+│       │   ├── favicon.ico      # Favicon for the client application
+│       │   ├── index.html       # Main HTML file for the client application
+│       │   ├── logo128.png      # 128x128 logo image
+│       │   ├── logo512.png      # 512x512 logo image
+│       │   ├── manifest.json    # Web app manifest file
+│       │   └── robots.txt       # Robots.txt file for web crawlers
+│       └── src                  # Source code for the client application
+│           ├── App.js           # Main React component
+│           ├── assets           # Assets used in the client application
+│           │   ├── bert_monster.png      # BERT monster image
+│           │   ├── difus_monster.png     # Diffusion monster image
+│           │   └── videoplayback.webm    # Video file
+│           ├── index.css        # CSS file for styling
+│           └── index.js         # Entry point JavaScript file for the client application
+├── LICENSE                      # License file for the project
+├── README.md                    # Readme file for the project
+├── docs                         # Documentation files
+│   ├── bert.md                  # Documentation for BERT-related components
+│   ├── data.md                  # Documentation for dataset components
+│   ├── diffusion.md             # Documentation for stable diffusion components
+│   ├── fast_api.md              # Documentation for FastAPI components
+│   ├── img                      # Images used in documentation
+│   │   ├── albert.jpeg          # Image of ALBERT model
+│   │   ├── bert.webp            # Image of BERT model
+│   │   └── diffusion_outputs.png # Image of the stable diffusion model outputs
+│   ├── index.md                 # Main documentation index
+│   ├── js.md                    # Documentation for JavaScript components
+│   ├── model.md                 # Documentation for the Multiclass Classification Trainer component
+│   ├── step_by_step.md          # Step-by-step guide for fine-tuning BERT-based models
+│   └── user_guide.md            # User guide for the project
+├── mkdocs.yml                   # Configuration file for MkDocs documentation generator
+├── package-lock.json            # Dependency lock file for npm (root project)
+├── requirements.txt             # Python dependencies for the project
+├── run.py                       # Main script to run FastAPI Docker
+└── setup.py                     # Setup script for packaging the project
+
+```
