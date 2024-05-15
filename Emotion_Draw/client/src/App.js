@@ -83,11 +83,11 @@ const App = () => {
         <ChakraProvider>
           <Flex direction="column" align="center" justify="center" className="main">  
             <Tooltip bg="rgb(61, 232, 255, .2)"
-                      label={<Box m ={2} >My name is AlBert.<br />
-                      I am a language model.<br />
-                      These crazy data scientists fine tunned me.<br />
-                      Click my tummy to get more information.<br />
-                      </Box>}
+                      label={<Box m={2}>Hi there, I'm EmoBERT!<br />
+                      I'm the language model ALBERT with a twist.<br />
+                      These enthusiastic data scientists have fine-tuned me to be extra emotional.<br />
+                      Click on my tummy to learn more about me.<br />
+                      </Box>}  
                       placement="right" hasArrow right = '550'>
               <Link href="https://huggingface.co/docs/transformers/en/model_doc/albert"isExternal> {/* Make each image a clickable link */}
                 <Image
@@ -102,11 +102,12 @@ const App = () => {
             </Tooltip>
             
             <Tooltip bg = 'rgb(255, 150, 194, .2)'
-                      label={<Box color='white' m ={2}>My name is Stable Diffusion.<br />
-                      I am a Text to Image model.<br />
-                      This Monster on the left makes me draw wiered images.<br />
-                      Click my tummy to get more information.<br />
-                      </Box>}
+                      label={<Box color='white' m={2}>Hello, I'm Stable Diffusion!<br />
+                      You can also call me Diffusio 🥰<br />
+                      I'm a text-to-image model.<br />
+                      That quirky monster on the left makes me create unusual images.<br />
+                      Click on my tummy to find out more about me.<br />
+                      </Box>}  
                       placement="left" hasArrow left = '550'>
               <Link href="https://huggingface.co/CompVis/stable-diffusion-v1-4"isExternal> 
                 <Image
@@ -130,12 +131,12 @@ const App = () => {
                   <Link href="https://www.linkedin.com/in/anahitabaghdasaryan/" isExternal _hover={{
                   textDecoration: 'none'}}>🐭</Link>
                   <Tooltip 
-                    label={<Box m ={2}>This is our project. We are muk and zaich<br />
-                    We accidentaly finetuned a bert model and now it is working!<br />
-                    Our Bert is very emotional Bert, so it always breaks any sentence to 3 emotions.<br />
-                    EmoBert has a friend. Friends' name is Diffusion a.k.a. Difuzyor<br />
-                    Difuzyor loves to draw, especially for EmoBert.<br />
-                    Tell something to our EmoBert, and Difuzyor will draw the emotions that Emo found.</Box>}
+                    label={<Box m={2}>Welcome to our project!<br />
+                    We've accidentally fine-tuned the ALBERT model, and now it’s super emotional! 🫣<br />
+                    We call this expressive version EmoBERT because it breaks down every sentence into three distinct emotions.<br />
+                    EmoBERT has a creative companion named Diffusion (or Diffusio).<br />
+                    Diffusio loves to draw, especially for EmoBERT.<br />
+                    Share a sentence with EmoBERT, and Diffusio will illustrate the emotions EmoBERT discovers.</Box>}
                     placement="right">
                     <Button onClick={onOpen} p={0} background="transparent" _hover={{ background: "transparent" }}>
                       <Image
