@@ -34,6 +34,8 @@ with open(auth_token_dir,'r') as f:
 # Initialize FastAPI app
 app = FastAPI()
 
+model_checkpoint = os.path.join(current_dir, "Emotion_Draw/bert_part/models_trained/multiclass_experiment3_albert-base-v2_best_checkpoint.pth")
+
 # Set up CORS middleware
 app.add_middleware(
     CORSMiddleware,
