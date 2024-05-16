@@ -7,24 +7,20 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Set the working directory in the container
+# Set the working directory in the container to the root of your Python package
 WORKDIR /Emotion_draw
 
-# Copy the requirements.txt file into the container
-COPY ./api/requirements.txt .
+# Copy the entire project into the container
+COPY . .
 
 # Install the dependencies specified in the requirements.txt file
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy the current directory contents into the container, excluding paths in .dockerignore
-COPY . .
+RUN pip install --no-cache-dir -r api/requirements.txt
 
 # Make port 8000 available for the app
 EXPOSE 8000
 
 ENV PYTHONUNBUFFERED=1
-
-RUN cd api
+ENV PYTHONPATH=.
 
 # Define the command to run the application
-CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "api.api:app", "--host", "0.0.0.0", "--port", "8000"]
