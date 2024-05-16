@@ -76,7 +76,7 @@ def generate(prompt: str):
                    'surprise' : "Bright Orange, Neon Green, Yellow, Silver, Electric Blue"}
     
     for emotion in emotions:
-       prompts.append(f"""ENERGY ART STYLE representation of the feeling of {emotion}. Use colors {color_emotion[emotion]}. Pastel tones. Waterpaint.""")
+       prompts.append(f"""ENERGY ART STYLE representation of the feeling of {emotion}. Use colors {color_emotion[emotion]}. Waterpaint. Smooth color transitions.""")
 
     # Generate images based on prompts
     with autocast(device): 

@@ -8,7 +8,11 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Set the working directory in the container to the root of your Python package
-WORKDIR /Emotion_draw
+WORKDIR /project
+
+# Create the backend folder and set it as the working directory
+RUN mkdir Emotion_Draw
+WORKDIR /project/Emotion_Draw
 
 # Copy the entire project into the container
 COPY . .
@@ -20,7 +24,8 @@ RUN pip install --no-cache-dir -r api/requirements.txt
 EXPOSE 8000
 
 ENV PYTHONUNBUFFERED=1
-ENV PYTHONPATH=.
+ENV PYTHONPATH=/project
+WORKDIR /project
 
 # Define the command to run the application
-CMD ["uvicorn", "api.api:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "Emotion_Draw.api.api:app", "--host", "0.0.0.0", "--port", "8000"]
