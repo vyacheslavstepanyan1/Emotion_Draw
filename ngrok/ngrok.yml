@@ -1,0 +1,10 @@
+authtoken: cr_2fdTeJtsQmYd05GuZxDhZsjx6mR
+tunnels:
+  back:
+    addr: 8000
+    proto: http
+  front:
+    addr: 3000
+    domain: condor-super-halibut.ngrok-free.app
+    proto: http
+version: '2'

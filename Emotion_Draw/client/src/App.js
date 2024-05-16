@@ -51,9 +51,14 @@ const App = () => {
     setSelectedImage(image);
     setImageModalOpen(true);
   };
+  const config = {
+    headers: {
+      'ngrok-skip-browser-warning': 'true'
+    }
+  };  
   const generate = async (prompt) => {
     setLoading(true);
-    const response = await axios.get(`http://127.0.0.1:8000/?prompt=${prompt}`);
+    const response = await axios.get(`https://306f-2a02-2a57-7161-0-2593-6cfc-a622-6cf0.ngrok-free.app/?prompt=${prompt}`, config);
     if (response.data && Array.isArray(response.data)) {
       const imageUrls = response.data.filter(item => item.media_type === "image/png").map(img => `data:image/png;base64,${img.body}`);
       setImages(imageUrls);
