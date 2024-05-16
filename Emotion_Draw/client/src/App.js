@@ -29,6 +29,7 @@ import { useState, useRef } from "react";
 import videoBG from "./assets/videoplayback.webm";
 import berto from "./assets/bert_monster.png";
 import difuso from "./assets/difus_monster.png";
+import download_icon from "./assets/downloads.png";
 import "./index.css";
 
 const App = () => {
@@ -58,7 +59,8 @@ const App = () => {
   };  
   const generate = async (prompt) => {
     setLoading(true);
-    const response = await axios.get(`https://306f-2a02-2a57-7161-0-2593-6cfc-a622-6cf0.ngrok-free.app/?prompt=${prompt}`, config);
+    // const response = await axios.get(`https://306f-2a02-2a57-7161-0-2593-6cfc-a622-6cf0.ngrok-free.app/?prompt=${prompt}`, config);
+    const response = await axios.get(`http://127.0.0.1:8000/?prompt=${prompt}`);
     if (response.data && Array.isArray(response.data)) {
       const imageUrls = response.data.filter(item => item.media_type === "image/png").map(img => `data:image/png;base64,${img.body}`);
       setImages(imageUrls);
@@ -84,6 +86,45 @@ const App = () => {
     <div className="main">
       <div className="overlay"></div>
       <video src={videoBG} autoPlay loop muted />
+      <div class="header">
+      <ChakraProvider>
+      <Flex
+  as="header"
+  width="100%"
+  align="center"
+  justify="center"
+  position="fixed"
+  top="5vh"  // Positions the header 5% from the top of the viewport height
+  zIndex="banner"  // Ensure zIndex is set appropriately in your CSS or directly here
+  p={4}  // Padding inside the header
+>
+                <Heading size="4xl" textAlign="center">
+                  <Link href="https://www.linkedin.com/in/vyacheslavstepanyan/" isExternal _hover={{
+                  textDecoration: 'none'}}>🐰</Link>
+                  Emotion Draw
+                  <Link href="https://www.linkedin.com/in/anahitabaghdasaryan/" isExternal _hover={{
+                  textDecoration: 'none'}}>🐭</Link>
+                  <Tooltip 
+                    label={<Box m={2}>Welcome to our project!<br />
+                    We've accidentally fine-tuned the ALBERT model, and now it’s super emotional! 🫣<br />
+                    We call this expressive version EmoBERT because it breaks down every sentence into three distinct emotions.<br />
+                    EmoBERT has a creative companion named Diffusion (or Diffusio).<br />
+                    Diffusio loves to draw, especially for EmoBERT.<br />
+                    Share a sentence with EmoBERT, and Diffusio will illustrate the emotions EmoBERT discovers.</Box>}
+                    placement="right">
+                    <Button onClick={onOpen} p={0} background="transparent" _hover={{ background: "transparent" }}>
+                      <Image
+                        src="https://wikis.tid.es/gvp-public/images/9/9f/Infobox_info_icon_white.svg.png"
+                        alt="Info Icon"
+                        boxSize="24px"
+                      />
+                    </Button>
+                  </Tooltip>
+                  </Heading>
+                </Flex>
+                </ChakraProvider>
+
+      </div>
       <div className="content">
         <ChakraProvider>
           <Flex direction="column" align="center" justify="center" className="main">  
@@ -128,33 +169,9 @@ const App = () => {
             </Tooltip>
               
             <Container maxW="100%">
-              <Flex as="header" width="100%" align="center" justify="center" p={4} position="fixed" top="20" zIndex="banner">
-                <Heading size="4xl" textAlign="center">
-                  <Link href="https://www.linkedin.com/in/vyacheslavstepanyan/" isExternal _hover={{
-                  textDecoration: 'none'}}>🐰</Link>
-                  Emotion Draw
-                  <Link href="https://www.linkedin.com/in/anahitabaghdasaryan/" isExternal _hover={{
-                  textDecoration: 'none'}}>🐭</Link>
-                  <Tooltip 
-                    label={<Box m={2}>Welcome to our project!<br />
-                    We've accidentally fine-tuned the ALBERT model, and now it’s super emotional! 🫣<br />
-                    We call this expressive version EmoBERT because it breaks down every sentence into three distinct emotions.<br />
-                    EmoBERT has a creative companion named Diffusion (or Diffusio).<br />
-                    Diffusio loves to draw, especially for EmoBERT.<br />
-                    Share a sentence with EmoBERT, and Diffusio will illustrate the emotions EmoBERT discovers.</Box>}
-                    placement="right">
-                    <Button onClick={onOpen} p={0} background="transparent" _hover={{ background: "transparent" }}>
-                      <Image
-                        src="https://wikis.tid.es/gvp-public/images/9/9f/Infobox_info_icon_white.svg.png"
-                        alt="Info Icon"
-                        boxSize="24px"
-                      />
-                    </Button>
-                  </Tooltip>
-                  </Heading>
-                </Flex>
 
-              <Modal isOpen={isImageModalOpen} onClose={() => setImageModalOpen(false)} size="5xl" isCentered>
+
+              <Modal isOpen={isImageModalOpen} onClose={() => setImageModalOpen(false)} size="5xl">
                 <ModalOverlay bg="rgba(0, 0, 0, 0.8)" />
                 <ModalContent bg="rgba(255, 255, 255, 0.2)" borderRadius="lg">
                   <ModalCloseButton />
@@ -169,7 +186,7 @@ const App = () => {
                         <Spacer />
                         <Button position="absolute" bottom="0" right="0" colorScheme="blue" background="transparent" _hover={{ background: "transparent" }} onClick={handleImageDownload} mb = "8" mr = "8" scaleX= "2">
                           <Image
-                          src="https://iihl.org/wp-content/uploads/2020/02/download-icon-white-png-1.png"
+                          src= {download_icon}
                           alt="Download icon"
                           boxSize="34px"
                           transform="scaleX(1.5)"

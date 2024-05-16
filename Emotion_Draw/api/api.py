@@ -51,6 +51,9 @@ model_id = "stabilityai/stable-diffusion-2-1"
 pipe = StableDiffusionPipeline.from_pretrained(model_id, revision="fp16", torch_dtype=torch.float16, use_auth_token= auth_token)
 pipe.to(device)
 
+
+
+
 # Define endpoint for generating image representations
 @app.get("/")
 def generate(prompt: str): 
@@ -63,20 +66,32 @@ def generate(prompt: str):
       sentences.append(sentence)
 
     # Generate prompts for image generation
-    emotion1 = inference[0][0]['label']
-    emotion2 = inference[0][1]['label']
-    emotion3 = inference[0][2]['label']
-    prompt1 = f"""ENERGY ART STYLE representation of the feeling of {emotion1}. colors that best match {emotion1}. 3-4 colors used. Pastel tones. Waterpaint. Transition between colors very smooth."""
-    prompt2 = f"""ENERGY ART STYLE representation of the feeling of {emotion2}. colors that best match {emotion2}. 3-4 colors used. Pastel tones. Waterpaint. Transition between colors very smooth."""
-    prompt3 = f"""ENERGY ART STYLE representation of the feeling of {emotion2}. colors that best match {emotion3}. 3-4 colors used. Pastel tones. Waterpaint. Transition between colors very smooth."""
+    emotions = [i['label'] for i in inference[0]][:3]
+    # emotion1 = inference[0][0]['label']
+    # emotion2 = inference[0][1]['label']
+    # emotion3 = inference[0][2]['label']
+    prompts = []
+    color_emotion = {'anger': "Red, Black, Orange, Dark, Brown Gray",
+                   'fear' : "Black, Dark Purple, Gray, Dark Blue, Dark Green",
+                   'joy' : "Black, Dark Purple, Gray, Dark Blue, Dark Green",
+                   'sadness' : "Gray, Dark Blue, Black, Dark Green, Pale Purple",
+                   'love' : "Red, Pink, White, Lavender, Peach",
+                   'surprise' : "Bright Orange, Neon Green, Yellow, Silver, Electric Blue"}
+    
+    for emotion in emotions:
+       prompts.append(f"""ENERGY ART STYLE representation of the feeling of {emotion}. Use colors {color_emotion[emotion]}. Pastel tones. Waterpaint.""")
+       
+    # prompt1 = f"""ENERGY ART STYLE representation of the feeling of {emotion1}. colors that best match {emotion1}. 3-4 colors used. Pastel tones. Waterpaint. Transition between colors very smooth."""
+    # prompt2 = f"""ENERGY ART STYLE representation of the feeling of {emotion2}. colors that best match {emotion2}. 3-4 colors used. Pastel tones. Waterpaint. Transition between colors very smooth."""
+    # prompt3 = f"""ENERGY ART STYLE representation of the feeling of {emotion2}. colors that best match {emotion3}. 3-4 colors used. Pastel tones. Waterpaint. Transition between colors very smooth."""
 
     # Generate images based on prompts
     with autocast(device): 
-        image1 = pipe(prompt1, guidance_scale=8.5).images[0]
+        image1 = pipe(prompts[0], guidance_scale=8.5).images[0]
     with autocast(device): 
-        image2 = pipe(prompt2, guidance_scale=8.5).images[0]
+        image2 = pipe(prompts[1], guidance_scale=8.5).images[0]
     with autocast(device): 
-        image3 = pipe(prompt3, guidance_scale=8.5).images[0]
+        image3 = pipe(prompts[2], guidance_scale=8.5).images[0]
 
     # Save images to directory and convert to base64 format
     image_dir = os.path.join(current_dir, "Emotion_Draw/api")

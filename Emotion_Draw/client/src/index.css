@@ -15,6 +15,19 @@
     height: 100%;
     object-fit: cover;
   }
+
+  /* CSS for the header */
+  .header {
+    width: 100%;              /* Full width of the viewport */
+    position: fixed;          /* Fixed position to stay in place during scrolling */
+    display: flex;            /* Use flexbox for alignment */
+    justify-content: center;  /* Center content horizontally */
+    align-items: center;      /* Center content vertically */
+    z-index: 10;              /* High z-index to keep the header above other content */
+    padding: 100px;          /* Padding inside the header, adjust as needed */
+    color: rgb(255, 255, 255);/* Optional: shadow for visual depth */
+  }
+  
   
   .content {
     position: absolute;
