@@ -67,23 +67,16 @@ def generate(prompt: str):
 
     # Generate prompts for image generation
     emotions = [i['label'] for i in inference[0]][:3]
-    # emotion1 = inference[0][0]['label']
-    # emotion2 = inference[0][1]['label']
-    # emotion3 = inference[0][2]['label']
     prompts = []
-    color_emotion = {'anger': "Red, Black, Orange, Dark, Brown Gray",
-                   'fear' : "Black, Dark Purple, Gray, Dark Blue, Dark Green",
-                   'joy' : "Black, Dark Purple, Gray, Dark Blue, Dark Green",
+    color_emotion = {'anger': "Red, Black, Dark Brown, Orange, Dark Gray",
+                   'fear' : "Black, Dark Purple, Dark Blue, Dark Green, Gray",
+                   'joy' : "Yellow, Orange, Bright Green, Sky Blue, Pink",
                    'sadness' : "Gray, Dark Blue, Black, Dark Green, Pale Purple",
                    'love' : "Red, Pink, White, Lavender, Peach",
                    'surprise' : "Bright Orange, Neon Green, Yellow, Silver, Electric Blue"}
     
     for emotion in emotions:
        prompts.append(f"""ENERGY ART STYLE representation of the feeling of {emotion}. Use colors {color_emotion[emotion]}. Pastel tones. Waterpaint.""")
-       
-    # prompt1 = f"""ENERGY ART STYLE representation of the feeling of {emotion1}. colors that best match {emotion1}. 3-4 colors used. Pastel tones. Waterpaint. Transition between colors very smooth."""
-    # prompt2 = f"""ENERGY ART STYLE representation of the feeling of {emotion2}. colors that best match {emotion2}. 3-4 colors used. Pastel tones. Waterpaint. Transition between colors very smooth."""
-    # prompt3 = f"""ENERGY ART STYLE representation of the feeling of {emotion2}. colors that best match {emotion3}. 3-4 colors used. Pastel tones. Waterpaint. Transition between colors very smooth."""
 
     # Generate images based on prompts
     with autocast(device): 
