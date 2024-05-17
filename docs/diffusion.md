@@ -47,14 +47,24 @@ While the Stable Diffusion v2-1 model offers impressive capabilities, it is esse
 
 In utilizing the Stable Diffusion v2-1 model, our approach lies on prompt engineering. We opted not to fine-tune the model, instead focusing on crafting an optimal prompt to achieve our artistic vision. 
 
-Our current prompt is written to depict the given emotion through specific color choices, pastel tones, waterpaint techniques, and seamless color transitions. 
+Our current prompt is crafted to illustrate the predicted emotions using carefully selected color palettes, watercolor techniques, and smooth color transitions.
+
+In the following script, the `color_emotion` dictionary maps each emotion to a set of corresponding colors. For each emotion in the list of predicted emotion, a prompt is generated that specifies an "ENERGY ART STYLE" representation. The resulting prompts are designed to evoke the intended emotional response through visual art.
 
 ```py
-prompt = f"""ENERGY ART STYLE representation of the feeling of {emotion}. 
-Colors that best match {emotion}. 
-3-4 colors used. Pastel tones.
-Waterpaint. 
-Transition between colors very smooth."""
+prompts = []
+    
+color_emotion = {
+    'anger': "Red, Black, Dark Brown, Orange, Dark Gray",
+    'fear': "Black, Dark Purple, Dark Blue, Dark Green, Gray",
+    'joy': "Yellow, Orange, Bright Green, Sky Blue, Pink",
+    'sadness': "Gray, Dark Blue, Black, Dark Green, Pale Purple",
+    'love': "Red, Pink, White, Lavender, Peach",
+    'surprise': "Bright Orange, Neon Green, Yellow, Silver, Electric Blue"
+}
+
+for emotion in emotions:
+    prompts.append(f"ENERGY ART STYLE representation of the feeling of {emotion}. Use colors {color_emotion[emotion]}. Waterpaint. Smooth color transitions.")
 ```
 
 ![diffusion_otp](img/diffusion_outputs.png)
